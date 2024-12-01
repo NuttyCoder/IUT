@@ -1,0 +1,93 @@
+Purpose and Usage
+
+NetworkUtils:
+
+Network scanning and device discovery
+IP and MAC address management
+Port checking
+Used by the Device Control and Internet Tracking systems
+
+
+SecurityUtils:
+
+Password hashing and verification
+Data encryption/decryption
+Key generation
+Used for securing sensitive data and user authentication
+
+
+LoggingUtils:
+
+Centralized logging system
+File and console logging
+Error tracking
+Activity monitoring
+
+EXAMPLE:
+# Using NetworkUtils
+from utils import NetworkUtils
+
+# Scan network for devices
+devices = NetworkUtils.scan_network()
+for device in devices:
+    print(f"Found device: {device['hostname']} ({device['ip']})")
+
+# Using SecurityUtils
+from utils import SecurityUtils
+
+# Hash password
+password = "mypassword123"
+hashed, salt = SecurityUtils.hash_password(password)
+
+# Encrypt sensitive data
+key = SecurityUtils.generate_key()
+encrypted = SecurityUtils.encrypt_data("sensitive information", key)
+
+# Using LoggingUtils
+from utils import LoggingUtils
+
+# Initialize logging
+logger = LoggingUtils()
+
+# Log activities
+logger.log_activity("Application started")
+try:
+    # Some operation
+    pass
+except Exception as e:
+    logger.log_error(e, "Failed to perform operation")
+
+ Integration Points
+The utilities are used throughout the application:
+
+-------->Device Control System:
+
+from utils import NetworkUtils
+
+class DeviceScanner:
+    def scan_devices(self):
+        return NetworkUtils.scan_network()
+
+-------->User Authentication
+
+from utils import SecurityUtils
+
+class UserManager:
+    def create_user(self, username, password):
+        hashed, salt = SecurityUtils.hash_password(password)
+        # Store user credentials
+
+-------->System monitoring
+
+from utils import LoggingUtils
+
+class SystemMonitor:
+    def __init__(self):
+        self.logger = LoggingUtils()
+        
+    def monitor(self):
+        self.logger.log_activity("Starting system monitoring")
+
+*** These utilities provide essential functions that are used throughout 
+the application, promoting code reuse and maintaining consistent 
+implementations of common operations.
