@@ -1,0 +1,30 @@
+PLANNING NETWORK MONITORING
+
+To use this monitor, you'll need to install some dependencies first:
+
+bash
+
+pip install psutil python-nmap speedtest-cli scapy
+
+This script will show you:
+
+All devices connected to your network (IP, MAC address, hostname)
+Current bandwidth usage
+Active network connections and what programs are using them
+Internet speed test results (runs hourly)
+
+To run it:
+
+Save the code to a file (e.g., network_monitor.py)
+Open a terminal/command prompt
+Navigate to the file's directory
+Run: python network_monitor.py
+
+*** 
+Some features (like network scanning) may require administrator/root privileges to run.
+***
+
+Add more monitoring features?
+Include data logging capabilities?
+Add a graphical interface?
+Include device blocking functionality?
